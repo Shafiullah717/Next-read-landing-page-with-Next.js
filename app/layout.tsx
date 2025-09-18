@@ -20,7 +20,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "NextRead - Your Next Favorite Book Awaits",
   description: "Add your last 5 books, and we'll recommend what you should read next.",
-  generator: "v0.app",
+   icons: {
+    icon: "/favicon.ico", // supports .ico, .png, .svg
+  },
 }
 
 export default function RootLayout({
