@@ -54,7 +54,7 @@ export default function Footer() {
           </nav>
 
           {/* Social Media Icons */}
-          <div className="flex justify-center md:justify-end">
+          {/* <div className="flex justify-center md:justify-end">
             <div className="flex space-x-4">
               <Link
                 href="#"
@@ -78,7 +78,7 @@ export default function Footer() {
                 <Github size={20} />
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright */}
