@@ -22,15 +22,31 @@ export default function HeroSection() {
     <section className="min-h-screen bg-background">
       <nav className="fixed top-0 left-0 right-0 z-50 w-full px-6 py-4 lg:px-8 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="mx-auto max-w-7xl flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
+          {/* Mobile Menu Button - Left Side */}
+          <button
+            className="md:hidden p-2 hover:bg-accent rounded-lg transition-colors"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6 text-foreground" />
+            ) : (
+              <Menu className="w-6 h-6 text-foreground" />
+            )}
+          </button>
+
+          {/* Logo - Desktop left, Mobile center */}
+          <div className="flex items-center gap-2 md:flex-none absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none lg:relative lg:left-auto lg:transform-none">
             <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
               <BookOpen className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-serif font-bold text-foreground">NextRead</span>
           </div>
 
-          {/* Navigation Links */}
+          {/* Empty space for mobile balance, Navigation for desktop */}
+          <div className="md:hidden lg:hidden w-10"></div>
+
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
@@ -57,19 +73,6 @@ export default function HeroSection() {
               Contact
             </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 hover:bg-accent rounded-lg transition-colors"
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
-          </button>
         </div>
 
         {/* Mobile Menu Dropdown */}
