@@ -14,7 +14,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/shafiullahs-projects-c080dced/v0-next-read-landing-page](https://vercel.com/shafiullahs-projects-c080dced/v0-next-read-landing-page)**
+**[NextRead](https://nextreadapp.vercel.app/)**
 
 ## Build your app
 
