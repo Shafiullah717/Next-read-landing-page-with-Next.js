@@ -1,18 +1,11 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { BookOpen, Apple, Play, X, Menu } from "lucide-react"
+import { BookOpen, X, Menu, CheckCircle } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 export default function HeroSection() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById("features")
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: "smooth" })
-    }
-  }
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -20,9 +13,10 @@ export default function HeroSection() {
 
   return (
     <section className="min-h-screen bg-background">
+      {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 w-full px-6 py-4 lg:px-8 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="mx-auto max-w-7xl flex items-center justify-between">
-          {/* Mobile Menu Button - Left Side */}
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 hover:bg-accent rounded-lg transition-colors"
             onClick={toggleMobileMenu}
@@ -35,95 +29,59 @@ export default function HeroSection() {
             )}
           </button>
 
-          {/* Logo - Desktop left, Mobile center */}
-          <div className="flex items-center gap-2 md:flex-none absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none lg:relative lg:left-auto lg:transform-none">
+          {/* Logo */}
+          <div className="flex items-center gap-2 md:flex-none absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
             <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-lg">
               <BookOpen className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-serif font-bold text-foreground">NextRead</span>
           </div>
 
-          {/* Empty space for mobile balance, Navigation for desktop */}
-          <div className="md:hidden lg:hidden w-10"></div>
+          {/* Spacer */}
+          <div className="md:hidden w-10"></div>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-secondary hover:text-foreground transition-colors font-sans cursor-pointer"
-            >
-              Features
-            </button>
-            <button
-              onClick={() => document.getElementById("screenshots")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-secondary hover:text-foreground transition-colors font-sans cursor-pointer"
-            >
-              Screenshots
-            </button>
-            <button
-              onClick={() => document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-secondary hover:text-foreground transition-colors font-sans cursor-pointer"
-            >
-              FAQ
-            </button>
-            <button
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="text-secondary hover:text-foreground transition-colors font-sans cursor-pointer"
-            >
-              Contact
-            </button>
+            {["Features", "Screenshots", "FAQ", "Contact"].map((item) => (
+              <button
+                key={item}
+                onClick={() =>
+                  document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="text-secondary hover:text-foreground transition-colors font-sans cursor-pointer"
+              >
+                {item}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
+        {/* Mobile Dropdown */}
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col gap-4 pt-4">
-              <button
-                onClick={() => {
-                  document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })
-                  setIsMobileMenuOpen(false)
-                }}
-                className="text-secondary hover:text-foreground transition-colors font-sans px-2 py-1 text-left cursor-pointer"
-              >
-                Features
-              </button>
-              <button
-                onClick={() => {
-                  document.getElementById("screenshots")?.scrollIntoView({ behavior: "smooth" })
-                  setIsMobileMenuOpen(false)
-                }}
-                className="text-secondary hover:text-foreground transition-colors font-sans px-2 py-1 text-left cursor-pointer"
-              >
-                Screenshots
-              </button>
-              <button
-                onClick={() => {
-                  document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" })
-                  setIsMobileMenuOpen(false)
-                }}
-                className="text-secondary hover:text-foreground transition-colors font-sans px-2 py-1 text-left cursor-pointer"
-              >
-                FAQ
-              </button>
-              <button
-                onClick={() => {
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                  setIsMobileMenuOpen(false)
-                }}
-                className="text-secondary hover:text-foreground transition-colors font-sans px-2 py-1 text-left cursor-pointer"
-              >
-                Contact
-              </button>
+              {["Features", "Screenshots", "FAQ", "Contact"].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => {
+                    document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: "smooth" })
+                    setIsMobileMenuOpen(false)
+                  }}
+                  className="text-secondary hover:text-foreground transition-colors font-sans px-2 py-1 text-left cursor-pointer"
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
         )}
       </nav>
 
+      {/* Hero Content */}
       <div className="px-6 py-12 lg:px-8 lg:py-20 pt-24 lg:pt-32">
         <div className="mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
+            {/* Left Section */}
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-serif font-bold text-foreground leading-tight text-balance">
@@ -134,40 +92,53 @@ export default function HeroSection() {
                 </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  onClick={scrollToFeatures}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground font-sans font-medium px-8 py-3 rounded-lg transition-colors"
-                >
-                  Get Started
-                </Button>
-                <div className="flex flex-col gap-2">
-                  <span className="text-sm text-secondary font-sans">Coming Soon</span>
+              {/* Download Buttons */}
+              <div className="flex flex-col items-start sm:items-center sm:flex-row gap-6">
+                <div className="flex flex-col gap-2 items-start sm:items-center">
+                  {/* Added green checkmark icon */}
+                  <div className="flex items-center gap-2 text-green-600">
+                    <CheckCircle className="w-5 h-5" />
+                    <span className="text-sm font-sans">Download Now</span>
+                  </div>
                   <div className="flex gap-3">
-                    <Button
-                      variant="outline"
-                      className="flex items-center gap-2 border-border hover:bg-accent font-sans px-4 py-2 rounded-lg bg-transparent"
+                    {/* App Store */}
+                    <a
+                      href="#"
+                      className="inline-flex items-center rounded-xl overflow-hidden duration-150 hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
+                      aria-label="Download on the App Store"
                     >
-                      <Apple className="w-4 h-4" />
-                      App Store
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="flex items-center gap-2 border-border hover:bg-accent font-sans px-4 py-2 rounded-lg bg-transparent"
+                      <Image
+                        src="/Apple Store logo.png"
+                        alt="App Store"
+                        width={180}
+                        height={58}
+                        className="h-auto object-contain select-none pointer-events-none"
+                        priority
+                      />
+                    </a>
+                    {/* Play Store */}
+                    <a
+                      href="#"
+                      className="inline-flex items-center rounded-xl overflow-hidden duration-150 hover:-translate-y-1 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary bg-white"
+                      aria-label="Get it on Google Play"
                     >
-                      <Play className="w-4 h-4" />
-                      Google Play
-                    </Button>
+                      <Image
+                        src="/Play store logo.png"
+                        alt="Google Play"
+                        width={180}
+                        height={58}
+                        className="h-auto object-contain select-none pointer-events-none"
+                        priority
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Content - iPhone Mockup */}
+            {/* Right Section - Mockup */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
-                {/* iPhone Frame */}
                 <div className="relative w-64 h-[520px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
                   <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
                     {/* Status Bar */}
@@ -182,7 +153,6 @@ export default function HeroSection() {
 
                     {/* App Content */}
                     <div className="px-6 py-4 space-y-6">
-                      {/* Header */}
                       <div className="text-center">
                         <div className="w-12 h-12 bg-primary rounded-xl mx-auto mb-3 flex items-center justify-center">
                           <BookOpen className="w-6 h-6 text-white" />
@@ -191,7 +161,6 @@ export default function HeroSection() {
                         <p className="text-sm text-gray-600">Book Recommendations</p>
                       </div>
 
-                      {/* Recent Books */}
                       <div className="space-y-3">
                         <h3 className="text-sm font-semibold text-black">Your Recent Books</h3>
                         <div className="space-y-2">
@@ -207,7 +176,6 @@ export default function HeroSection() {
                         </div>
                       </div>
 
-                      {/* Recommendation Button */}
                       <button className="w-full bg-primary text-white py-3 rounded-lg font-medium">
                         Get Recommendations
                       </button>
