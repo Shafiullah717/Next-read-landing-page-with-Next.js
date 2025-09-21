@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react"
 const faqs = [
   {
     question: "How does NextRead work?",
-    answer: "Add up to 5 books you've read, and our AI will recommend similar titles.",
+    answer: "Add up to 3 books you've read, and our AI will recommend similar titles.",
   },
   {
     question: "Is NextRead free?",
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "Can I use NextRead offline?",
-    answer: "Recommendations require internet, but your saved list is available offline.",
+    answer: "NextRead requires an internet connection for recommendations.",
   },
 ]
 

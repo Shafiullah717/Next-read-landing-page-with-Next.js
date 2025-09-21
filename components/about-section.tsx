@@ -14,7 +14,7 @@ export default function AboutSection() {
               Your personal AI-powered reading companion.
             </p>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl">
-              Just tell us the last 5 books you've read, and NextRead will recommend your perfect next read. Our smart
+              Just tell us the last 3 books you've read, and NextRead will recommend your perfect next read. Our smart
               recommendation system helps you discover new authors, genres, and books tailored to your reading habits.
             </p>
           </div>

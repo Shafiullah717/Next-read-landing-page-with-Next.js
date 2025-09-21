@@ -11,17 +11,22 @@ export default function ScreenshotsSection() {
     {
       id: 1,
       title: "Book Recommendations",
-      image: "/mobile-app-showing-book-recommendations-with-cover.jpg",
+      image: "/Singn-in page.png",
     },
     {
       id: 2,
       title: "Reading List",
-      image: "/mobile-app-showing-personal-reading-list-with-book.jpg",
+      image: "/Main-page1.png",
     },
     {
       id: 3,
       title: "Book Details",
-      image: "/mobile-app-showing-book-details-page-with-descript.jpg",
+      image: "/Main-page2.png",
+    },
+    {
+      id: 4,
+      title: "Book Details",
+      image: "/Main-page3.png",
     },
   ]
 

@@ -88,7 +88,7 @@ export default function HeroSection() {
                   Your Next Favorite Book Awaits
                 </h1>
                 <p className="text-lg lg:text-xl text-secondary font-sans leading-relaxed text-pretty">
-                  Add your last 5 books, and we'll recommend what you should read next.
+                  Add your last 3 books, and we'll recommend what you should read next.
                 </p>
               </div>
 
